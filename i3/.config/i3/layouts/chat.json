@@ -1,0 +1,66 @@
+    {
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.50,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 388,
+               "width": 564,
+               "x": 0,
+               "y": 0
+            },
+            "name": "WeeChat 2.0.1",
+            "percent": 0.30,
+            "swallows": [
+               {
+               "instance": "weechat"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 388,
+               "width": 564,
+               "x": 0,
+               "y": 0
+            },
+            "name": "mutt",
+            "percent": 0.85,
+            "swallows": [
+               {
+               "instance": "mutt"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+    }
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1054,
+       "width": 650,
+       "x": 1269,
+       "y": 25
+    },
+    "name": "Telegram",
+    "percent": 0.34,
+    "swallows": [
+       {
+       "name": "^TelegramDesktop$"
+       }
+    ],
+    "type": "con"
+}

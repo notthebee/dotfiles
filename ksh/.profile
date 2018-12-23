@@ -1,0 +1,1 @@
+ export ENV=$HOME/.kshrc

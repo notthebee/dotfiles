@@ -1,0 +1,2 @@
+#! /bin/sh
+mon="$(doas ddccontrol -r 0x60 -w 17 dev:/dev/i2c-3)"

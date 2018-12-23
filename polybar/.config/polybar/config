@@ -1,0 +1,203 @@
+[colors]
+background = ${xrdb:background:#222}
+background-alt = ${xrdb:background-even:#222}
+foreground-alt = ${xrdb:color8:#222}
+foreground = ${xrdb:foreground:#555}
+primary = #ffb52a
+secondary = #e60053
+alert = ${xrdb:color1:#222}
+
+[bar/example]
+width = 100%
+height = 24
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Fira Code:pixelsize=9;1
+font-1 = Icons:style=Iconic:pixelsize=9;2
+font-2 = Font Awesome 5 Free:style=Solid:pixelsize=9;1
+font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
+
+modules-left = i3
+modules-center = date
+modules-right = xkeyboard player-cmus wireless openvpn battery
+
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-foreground = ${colors.foreground-alt}
+format-padding = 0
+
+label = %title%
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = 
+
+[module/player-cmus]
+type = custom/script
+exec = ~/.polybar-scripts/player-cmus/player-cmus.sh
+label =%output%
+format-prefix = "np: "
+format-prefix-foreground = ${colors.foreground-alt}
+exec-if = cmus-remote -Q
+interval = 1
+click-left = cmus-remote -n
+click-right = cmus-remote -r
+click-middle = ~/polybar-scripts/player-cmus.sh --toggle
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = caps lock
+
+format-prefix-foreground = ${colors.foreground-alt}
+label-layout = %layout%
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.foreground}
+label-urgent-padding = 1
+
+[module/wireless]
+type = internal/network
+interface = wlan0
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %essid%
+
+format-disconnected = 
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground}
+
+[module/openvpn]
+type = internal/network
+interface = tun0
+interval = 3.0
+
+format-connected-prefix = "tun0: "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = on
+
+format-disconnected-prefix = "tun0: "
+format-disconnected-prefix-foreground = ${colors.foreground-alt}
+label-disconnected = off
+
+[module/eth]
+type = internal/network
+interface = eth0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a 
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging-prefix = " " 
+format-charging-prefix-foreground = ${colors.foreground-alt}
+
+format-discharging-prefix = " "
+format-discharging-prefix-foreground = ${colors.foreground-alt}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+
+format = <label>
+format-warn = <label-warn>
+
+label = %temperature-c%
+label-foreground = ${colors.foreground-alt}
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.foreground}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

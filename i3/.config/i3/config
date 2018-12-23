@@ -1,0 +1,160 @@
+# notthebee's i3 config
+
+set $mod Mod1
+set $sup Mod4
+font xft:Fira Code 9
+default_border pixel 2
+floating_modifier $mod
+bindsym $mod+Return exec st
+
+# COLORS
+# set colors from Xresources, fall back to #000000 in case Xresources is missing
+set_from_resource $darkred     color1  			#000000
+set_from_resource $red         color9  			#000000
+set_from_resource $darkgreen   color2  			#000000
+set_from_resource $green       color10 			#000000
+set_from_resource $darkyellow  color3  			#000000
+set_from_resource $yellow      color11 			#000000
+set_from_resource $darkblue    color4  			#000000
+set_from_resource $blue        color12 			#000000
+set_from_resource $darkmagenta color5  			#000000
+set_from_resource $magenta     color13 			#000000
+set_from_resource $darkcyan    color6  			#000000
+set_from_resource $cyan        color14 			#000000
+set_from_resource $darkwhite   color7  			#000000
+set_from_resource $white       foreground 		#000000
+set_from_resource $black       background 		#000000
+set_from_resource $alt_black   background-even	 	#000000
+set_from_resource $br_black    color8 			#000000
+set_from_resource $alt_white   color1			#000000
+
+# set border colors     BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $white      $black  	$alt_black
+client.unfocused        $alt_black  $alt_black  $br_black   $black  	$black
+client.focused_inactive $black      $black      $color12    $black 	$black
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background       $black
+
+# AUTOSTART
+exec_always "xrdb -merge $HOME/.Xresources"
+exec syncthing -no-browser
+exec "$HOME/.switchoutputs" # auto-switch between external and internal monitors
+exec_always "dunst -conf $HOME/.dunstrc -lb \"$alt_black\" -nb \"$white\" -cb \"$alt_white\" -lf \"$br_black\" -cf \"$black\" -nf \"$alt_black\""
+exec_always "setxkbmap de,ru -option caps:escape -option grp:shifts_toggle && xset r rate 280 35"
+bindsym $mod+Tab exec "setxkbmap de,ru -option caps:escape -option grp:shifts_toggle && xset r rate 280 35"
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id "nitrogen --restore"
+exec "compton"
+exec "xautolock -corners --00 -time 10 -locker slock -notify 5"
+exec autocutsel -fork # clipboard manager
+exec autocutsel -selection PRIMARY -fork # et encore
+exec unclutter --timeout 1 # hide mouse cursor when inactive
+exec udiskie # mount external drives as user
+
+# CUSTOM MAPPINGS
+# rofi
+bindsym $mod+d exec rofi -show run -modi run
+
+# lock the screen
+bindsym $mod+Shift+Control+l exec "xautolock -locknow"
+
+# switch to another PC
+bindsym $mod+Shift+Control+d exec "$HOME/.switchmonitors"
+
+# toggle gaps
+bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
+    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
+        i3-msg gaps inner current set 0; \
+    else \
+        i3-msg gaps inner current set 10; \
+    fi"
+
+# launch apps
+bindsym $mod+b exec qutebrowser
+bindsym $mod+r exec st -e "ranger"
+bindsym $mod+m exec st -e "cmus"
+bindsym $mod+Shift+c exec --no-startup-id $HOME/.config/i3/layouts/chat.sh
+
+# media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.mmkeys.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.mmkeys.sh down
+bindsym XF86AudioMute exec --no-startup-id $HOME/.mmkeys.sh mute
+bindsym F6 exec --no-startup-id $HOME/.mmkeys.sh prev
+bindsym F7 exec --no-startup-id $HOME/.mmkeys.sh pause
+bindsym F8 exec --no-startup-id $HOME/.mmkeys.sh next
+
+# screencasts
+bindsym $mod+Control+5 exec mpv $HOME/.local/share/sounds/beep-timber.aif && dunstify -u CRIT "on air" -t 800 && ffmpeg -f x11grab -s 1920x1080 -i :0.0 $HOME/Videos/Screencasts/$(date +"%d_%m_%Y_%I_%M").mp4 
+bindsym $mod+Control+6 exec mpv $HOME/.local/share/sounds/beep-timber.aif && pkill ffmpeg && dunstify -u LOW -t 1500 "screencast saved"
+
+# screenshots
+bindsym $mod+Control+3 exec maim -u | xclip -selection clipboard -t image/png && notify-send "Screenshot captured"
+bindsym $mod+Control+4 exec maim -s -u | xclip -selection clipboard -t image/png && notify-send "Screenshot captured"
+
+# WINDOW CONTROL
+bindsym $mod+q kill
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right 
+# qwertz is literally that bad
+
+# resize, because ain't nobody got time for the "resize mode"
+bindsym $mod+Ctrl+j resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+k resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+l resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+odiaeresis resize grow width 1 px or 1 ppt
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+#bindsym $mod+s layout stacking
+bindsym $mod+w exec i3-msg "layout tabbed" && exec dunstify -u LOW -t 1500 --replace=68 "layout: tabbed"
+bindsym $mod+e exec i3-msg "layout toggle split" && exec dunstify -u LOW -t 1500 --replace=68 "layout: split"
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# arch linux anime rice starter pack
+set $ws1 "1:msc"
+set $ws2 "2:web"
+set $ws3 "3:cht"
+set $ws4 "4:uni"
+set $ws5 "5:wrk"
+set $ws6 "6:mus"
+set $ws7 "7:cnf"
+set $ws8 "8:win"
+set $ws9 "9:msc"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# application-specific settings
+assign [class="qutebrowser"] $ws2
+bindsym $mod+Shift+p reload
+bindsym $mod+Shift+r restart

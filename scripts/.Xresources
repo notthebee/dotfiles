@@ -1,0 +1,35 @@
+#include ".Xresources.d/solarized" 
+! urxvt
+URxvt*termName : rxvt-unicode-256color
+URxvt.scrollBar: off
+*.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
+URxvt.boldFont: xft:Fira Code:size=9:style=Bold
+URxvt*cursorBlink: true
+URxvt*internalBorder: 11
+URxvt.letterSpace: -1
+! yankable urls
+URxvt.perl-ext: default,url-select,font-size
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+! rofi
+rofi.font: Fira Code 9
+rofi.hide-scrollbar: true
+rofi.location: 1
+rofi.width: 100
+rofi.lines: 2
+rofi.columns: 9
+rofi.bw: 0
+rofi.line-margin: 0
+rofi.line-padding: 1
+rofi.separator-style: none
+rofi.color-window: S_base02, S_base02, S_base00
+rofi.color-normal: S_base02, S_base03, S_base02, #00323E, S_base00
+rofi.kb-row-select: Tab
+rofi.kb-row-tab: 
+! rofi.color-urgent: argb:2c1d1f21, #cc6666, argb:e54b5160, #a54242, #f9f9f9
+! rofi.color-active: argb:2c1d1f21, #65acff, argb:e44b5160, #4491ed, #f9f9f9

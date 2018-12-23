@@ -1,0 +1,5 @@
+set format_current= %= %a - %t
+unbind -f common f
+set format_statusline= %{status} %t %=%1{shuffle} %{?show_playback_position?%{position} %{?duration?/ %{duration}}?%{?duration?%{duration}}}
+set format_current= %a%=%l
+set format_trackwin=  %2n. %t%= %y %d
