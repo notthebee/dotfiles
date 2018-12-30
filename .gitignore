@@ -5,3 +5,6 @@ command-history
 *.swp
 swap
 .ropeproject
+lib.pl
+.DS_Store
+._.DS_Store
