@@ -31,5 +31,10 @@ rofi.color-window: S_base02, S_base02, S_base00
 rofi.color-normal: S_base02, S_base03, S_base02, #00323E, S_base00
 rofi.kb-row-select: Tab
 rofi.kb-row-tab: 
-! rofi.color-urgent: argb:2c1d1f21, #cc6666, argb:e54b5160, #a54242, #f9f9f9
-! rofi.color-active: argb:2c1d1f21, #65acff, argb:e44b5160, #4491ed, #f9f9f9
+
+! dmenu
+dmenu.font: Fira Code-9
+dmenu.background: S_base02
+dmenu.foreground: S_base03
+dmenu.selforeground: S_base00
+dmenu.selbackground: S_base02

@@ -8,6 +8,7 @@ secondary = #e60053
 alert = ${xrdb:color1:#222}
 
 [bar/example]
+enable-ipc = true
 width = 100%
 height = 24
 radius = 0
@@ -35,7 +36,7 @@ font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
 
 modules-left = i3
 modules-center = date
-modules-right = xkeyboard player-cmus wireless openvpn battery
+modules-right = xkeyboard player-cmus wireless battery
 
 [module/title]
 type = internal/xwindow

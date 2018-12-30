@@ -38,22 +38,23 @@ client.background       $black
 # AUTOSTART
 exec_always "xrdb -merge $HOME/.Xresources"
 exec syncthing -no-browser
-exec "$HOME/.switchoutputs" # auto-switch between external and internal monitors
 exec_always "dunst -conf $HOME/.dunstrc -lb \"$alt_black\" -nb \"$white\" -cb \"$alt_white\" -lf \"$br_black\" -cf \"$black\" -nf \"$alt_black\""
 exec_always "setxkbmap de,ru -option caps:escape -option grp:shifts_toggle && xset r rate 280 35"
 bindsym $mod+Tab exec "setxkbmap de,ru -option caps:escape -option grp:shifts_toggle && xset r rate 280 35"
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec "polybar example -r"
+exec_always "polybar-msg cmd restart"
 exec_always --no-startup-id "nitrogen --restore"
+exec --no-startup-id "udiskie -A"
 exec "compton"
 exec "xautolock -corners --00 -time 10 -locker slock -notify 5"
 exec autocutsel -fork # clipboard manager
 exec autocutsel -selection PRIMARY -fork # et encore
 exec unclutter --timeout 1 # hide mouse cursor when inactive
-exec udiskie # mount external drives as user
 
 # CUSTOM MAPPINGS
-# rofi
-bindsym $mod+d exec rofi -show run -modi run
+# dmenu-frecency
+# https://github.com/kspi/dmenu-frecency
+bindsym $mod+d exec dmenu-frecency
 
 # lock the screen
 bindsym $mod+Shift+Control+l exec "xautolock -locknow"
@@ -72,7 +73,7 @@ bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
 # launch apps
 bindsym $mod+b exec qutebrowser
 bindsym $mod+r exec st -e "ranger"
-bindsym $mod+m exec st -e "cmus"
+bindsym $mod+m exec "udiskie-dmenu -h 24"
 bindsym $mod+Shift+c exec --no-startup-id $HOME/.config/i3/layouts/chat.sh
 
 # media keys
@@ -158,3 +159,4 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 assign [class="qutebrowser"] $ws2
 bindsym $mod+Shift+p reload
 bindsym $mod+Shift+r restart
+
