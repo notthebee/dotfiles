@@ -1,4 +1,2 @@
 #! /bin/sh
-nitrogen --restore
-setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
-polybar-msg cmd restart
+i3-msg restart
