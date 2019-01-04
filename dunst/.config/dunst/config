@@ -149,8 +149,17 @@
 
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/vivaldi-stable
+    browser = /usr/bin/qutebrowser
     always_run_script = true
     title = Dunst
     class = Dunst
     startup_notification = false
+
+[urgency_low]
+    timeout = 2
+
+[urgency_normal]
+    timeout = 5
+
+[urgency_critical]
+    timeout = 5

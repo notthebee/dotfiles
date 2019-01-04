@@ -1,0 +1,11 @@
+#include ".Xresources.d/solarized" 
+! font
+*.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
+! dzen2
+dzen2.font: Fira Code 9
+! dmenu
+dmenu.font: Fira Code-9
+dmenu.background: S_base02
+dmenu.foreground: S_base03
+dmenu.selforeground: S_base00
+dmenu.selbackground: S_base02

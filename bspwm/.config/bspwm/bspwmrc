@@ -1,12 +1,17 @@
 #! /bin/sh
 source $HOME/.colors.sh
 
+bspc rule -a TelegramDesktop:Telegram desktop=^3 split_dir="west"
+bspc rule -a xterm-256color:mutt desktop=^3 split_dir="north"
+bspc rule -a xterm-256color:weechat desktop=^3 split_dir="south"
+bspc rule -a qutebrowser desktop=^2 split_ratio="0.7"
+
 # restarting dunst and polybar, resetting wallpaper and layout
-setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
-xset r rate 280 35
 feh --bg-scale $HOME/.wp.jpg
 polybar-msg cmd restart
 $HOME/.config/dunst/wrapper.sh &
+setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
+xset r rate 280 35
 
 bspc monitor -d msc web cht uni wrk mus cnf
 
@@ -24,3 +29,7 @@ bspc config focused_border_color	"$bgeven"
 bspc config presel_feedback_color	"$darkgrey"
 bspc config focus_follows_pointer true
 
+bspc config external_rules_command ~/.config/bspwm/scripts/autopresel
+
+[ -e "$PANEL_FIFO" ] && bspc subscribe report > "$PANEL_FIFO" &
+pgrep -x panel > /dev/null || panel &

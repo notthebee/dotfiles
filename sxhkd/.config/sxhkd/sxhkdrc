@@ -1,6 +1,5 @@
-#
-# wm independent hotkeys
-#
+# MISC
+
 # screenshots
 alt + ctrl + 3
 	maim -u | xclip -selection clipboard -t image/png && notify-send "Screenshot captured"
@@ -11,11 +10,11 @@ alt + ctrl + 4
 alt + ctrl + 5 
 	mpv $HOME/.local/share/sounds/beep-timber.aif && dunstify -u CRIT "on air" -t 800 && ffmpeg -f x11grab -s 1920x1080 -i :0.0 $HOME/Videos/Screencasts/$(date +"%d_%m_%Y_%I_%M").mp4 
 alt + ctrl + 6 
-	mpv $HOME/.local/share/sounds/beep-timber.aif && pkill ffmpeg && dunstify -u LOW -t 1500 "screencast saved"
+	mpv $HOME/.local/share/sounds/beep-timber.aif && pkill ffmpeg && dunstify -u LOW "screencast saved"
 
 # switch between monitors
 F12
-	exec autorandr --change
+	exec $HOME/.switchoutputs
 
 # media keys
 XF86AudioRaiseVolume 
@@ -49,9 +48,8 @@ alt + shift + ctrl + l
 alt + shift + r
 	pkill -USR1 -x sxhkd && $HOME/.config/bspwm/bspwmrc
 
-#
-# bspwm hotkeys
-#
+
+# BSPWM
 
 # close and kill
 alt + {_,shift + }q
@@ -61,13 +59,13 @@ alt + {_,shift + }q
 alt + f
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
+# rotate current node 90 degrees
 alt + y
-	bspc node newest.marked.local -n newest.!automatic.local
+	bspc node @focused:/ -R 90
 
-# swap the current node and the biggest node
+# swap the current node and the biggest local node
 alt + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #
 # state/flags
@@ -77,13 +75,8 @@ alt + g
 alt + {t,shift + t,s}
 	bspc node -t {tiled,pseudo_tiled,floating}
 
-# set the node flags
-alt + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
 
-#
 # focus/swap
-#
 
 # focus the node in the given direction
 alt + {_,shift + }{h,j,k,l}
@@ -93,9 +86,9 @@ alt + {_,shift + }{h,j,k,l}
 alt + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
+# focus or swap the next node
 alt + {_,shift + }c
-	bspc node -f {next,prev}.local
+	bspc node -{f,s} next.local
 
 # focus the older or newer node in the focus history
 

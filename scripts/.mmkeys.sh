@@ -7,7 +7,7 @@ function cmus() {
 	cmus-remote --$1
 }
 function notify() {
-	dunstify --replace=69 -t 1500 -u LOW "$1"
+	dunstify --replace=69 -u LOW "$1"
 }
 
 function volume () {

@@ -21,6 +21,8 @@ config.bind("<Windows-7>", "tab-focus 7")
 config.bind("<Windows-8>", "tab-focus 8")
 config.bind("<Windows-9>", "tab-focus 9")
 config.bind("<Windows-0>", "tab-focus 10")
+config.bind("<Windows-l>", "tab-next")
+config.bind("<Windows-h>", "tab-prev")
 # Show javascript alerts.
 # Type: Bool
 c.content.javascript.alert = True

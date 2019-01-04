@@ -1,1 +1,6 @@
- export ENV=$HOME/.kshrc
+export ENV=$HOME/.kshrc
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="Fira Code 9"
+PANEL_WM_NAME=bspwm_panel
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
