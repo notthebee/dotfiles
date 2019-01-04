@@ -52,7 +52,7 @@ syntax on
 set laststatus=2
 set background=dark
 colorscheme flattened_dark
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 au BufNewFile,BufRead *.md
     \ Goyo |
     \ hi StatusLineNC ctermfg=white | 

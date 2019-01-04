@@ -1,2 +1,2 @@
 #! /bin/sh
-i3-msg restart
+$HOME/.config/bspwm/bspwmrc

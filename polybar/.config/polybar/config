@@ -13,6 +13,8 @@ width = 100%
 height = 24
 radius = 0
 fixed-center = true
+wm-restack = bspwm
+#override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -34,9 +36,45 @@ font-1 = Icons:style=Iconic:pixelsize=9;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=9;1
 font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
 
-modules-left = i3
+modules-left = i3 bspwm
 modules-center = date
 modules-right = xkeyboard player-cmus wireless battery
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.foreground}
+label-urgent-padding = 1
+
+
 
 [module/title]
 type = internal/xwindow
@@ -77,40 +115,22 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-strip-wsnumbers = false
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+[module/bspwm]
+type = internal/bspwm
 
-label-mode-padding = 0
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.foreground}
+label-focused = %index%:%name%
 label-focused-padding = 1
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
-label-unfocused-foreground = ${colors.foreground-alt}
-label-unfocused-padding = 1
+label-occupied = %index%:%name%
+label-occupied-foreground = ${colors.foreground-alt}
+label-occupied-padding = 1
 
-; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-background = ${colors.foreground}
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
+
+label-empty = 
 
 [module/wireless]
 type = internal/network
@@ -198,7 +218,7 @@ ramp-2 = 
 ramp-foreground = ${colors.foreground}
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
