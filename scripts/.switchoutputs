@@ -1,0 +1,63 @@
+#! /bin/sh
+# A script that switches between external and internal monitor
+# It is launched when AC power is connected
+
+export DISPLAY=:0
+export XAUTHORITY=/home/notthebee/.Xauthority
+
+# default monitor is LVDS1
+MONITOR=LVDS1
+
+# functions to switch from HDMI to VGA and vice versa
+connect() {
+	echo "Switching to HDMI2"
+	xrandr --output LVDS1 --off --output HDMI2 --auto --dpi 96
+	/home/notthebee/.config/bspwm/bspwmrc
+	MONITOR=HDMI2
+}
+disconnect() {
+	echo "Switching to LVDS1"
+	xrandr --output HDMI2 --off --output LVDS1 --auto --dpi 96
+	/home/notthebee/.config/bspwm/bspwmrc
+	MONITOR=LVDS1
+}
+
+
+# functions to check if HDMI2 is connected and in use
+
+active() {
+	[ $MONITOR = "HDMI2" ]
+}
+
+connected() {
+	! xrandr | grep "^HDMI2" | grep disconnected
+}
+
+# switch to LVDS1 if HDMI2 is disconnected
+if ! connected
+then
+	disconnect
+fi
+
+# switch between monitors, do it 15 times just to make sure.
+# yes, i am serious. i've been trying to find a reliable way
+# to do that for half a year, and nothing worked. apart from
+# this. the absolute state of linux!
+
+for i in {1..15}; do
+	if ! active && connected
+	then
+		connect
+	fi
+
+	if active && ! connected
+	then
+		disconnect
+	fi
+	sleep 0.5s
+done
+
+
+# set the xkb options. again. because they always reset
+setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
+xset r rate 280 35
