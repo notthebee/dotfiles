@@ -36,7 +36,7 @@ font-1 = Icons:style=Iconic:pixelsize=9;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=9;1
 font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
 
-modules-left = i3 bspwm
+modules-left = bspwm
 modules-center = date
 modules-right = xkeyboard player-cmus wireless battery
 [module/i3]
@@ -94,7 +94,7 @@ label-empty =
 
 [module/player-cmus]
 type = custom/script
-exec = ~/.polybar-scripts/player-cmus/player-cmus.sh
+exec = ~/.config/polybar/cmus.sh
 label =%output%
 format-prefix = "np: "
 format-prefix-foreground = ${colors.foreground-alt}

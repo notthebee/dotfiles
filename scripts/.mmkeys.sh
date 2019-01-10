@@ -7,7 +7,7 @@ function cmus() {
 	cmus-remote --$1
 }
 function notify() {
-	dunstify --replace=69 -u LOW "$1"
+	dunstify --replace=69 -u "LOW" "$1"
 }
 
 function volume () {
@@ -25,7 +25,7 @@ function volume () {
 }
 
 function mixer() {
-	amixer -D pulse -q sset Master $1	
+	amixer -D default -q sset Master $1	
 }
 	
 case $1 in 

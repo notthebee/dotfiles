@@ -23,10 +23,13 @@ alias polyconf="nvim ~/.config/polybar/config"
 alias vimconf="nvim ~/.vimrc"
 alias pass="kpcli -kdb ~/Documents/pass.kdbx"
 alias doas='doas '
+alias sudo='sudo '
 alias n='nnn $HOME/Documents/Notes'
 alias em='doas emerge -v'
+alias pkg='vpm --color=no'
 alias vim='nvim'
 alias ipp='curl ipinfo.io/ip'
+alias mixer='ncpamixer'
 PS1="$(echo -e "\033[34m~ \033[00m")"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi

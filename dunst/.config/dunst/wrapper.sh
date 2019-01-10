@@ -1,10 +1,10 @@
 #! /bin/sh
-source $HOME/.colors.sh
+. $HOME/.colors.sh
 pkill dunst
 dunst -conf $HOME/.config/dunst/config \
 	-lb "$bgeven" \
 	-nb "$foreground" \
-	-cb "$lightgrey" \
+	-cb "$darkred" \
 	-lf "$darkgrey" \
 	-cf "$background" \
 	-nf "$bgeven" &

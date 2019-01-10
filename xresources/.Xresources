@@ -1,8 +1,20 @@
+! colors
 #include ".Xresources.d/solarized" 
+! urxvt
+URxvt*termName : rxvt-unicode-256color
+URxvt.scrollBar: off
+URxvt.boldFont: xft:Fira Code:size=9:style=Bold
+URxvt*cursorBlink: true
+URxvt*internalBorder: 11
+URxvt.letterSpace: -1
 ! font
 *.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
-! dzen2
-dzen2.font: Fira Code 9
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintmedium
+Xft.lcdfilter: lcddefault
 ! dmenu
 dmenu.font: Fira Code-9
 dmenu.background: S_base02

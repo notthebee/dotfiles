@@ -1,0 +1,8 @@
+#! /bin/bash
+while sleep 10s; do
+	if [[ $(xdotool getactivewindow getwindowname | grep 'Netflix\|YouTube') ]]; then
+		xautolock -disable
+	else
+		xautolock -enable
+	fi
+done

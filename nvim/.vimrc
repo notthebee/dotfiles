@@ -46,6 +46,7 @@ let g:goyo_height = "80%"
 
 let g:vimtex_compiler_enabled = 1
 let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_general_viewer = '/usr/bin/zathura'
 set nu
 set relativenumber
 syntax on
