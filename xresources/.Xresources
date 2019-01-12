@@ -6,7 +6,6 @@ URxvt.scrollBar: off
 URxvt.boldFont: xft:Fira Code:size=9:style=Bold
 URxvt*cursorBlink: true
 URxvt*internalBorder: 11
-URxvt.letterSpace: -1
 ! font
 *.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
 Xft.antialias: true
