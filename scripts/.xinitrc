@@ -2,9 +2,8 @@
 # notthebee's .xinitrc
 
 $HOME/.switchoutputs &
-autocutsel -fork
-autocutsel -selection PRIMARY -fork
 xrdb -merge ~/.Xresources
+parcellite &
 setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
 xset r rate 280 35
 feh --bg-scale $HOME/.wp.jpg

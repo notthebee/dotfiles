@@ -7,6 +7,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
+set clipboard+=unnamedplus
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
