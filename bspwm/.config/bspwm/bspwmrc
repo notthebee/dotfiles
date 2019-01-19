@@ -1,5 +1,5 @@
 #! /bin/sh
-. $HOME/.colors.sh
+. $HOME/.local/bin/getcolors
 
 bspc rule -a TelegramDesktop:Telegram desktop=^3 split_dir="west"
 bspc rule -a xterm-256color:mutt desktop=^3 split_dir="north"

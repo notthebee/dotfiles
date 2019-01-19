@@ -14,21 +14,21 @@ alt + ctrl + 6
 
 # switch between monitors
 F12
-	exec $HOME/.switchoutputs
+	exec $HOME/.local/bin/switchoutputs
 
 # media keys
 XF86AudioRaiseVolume 
-	$HOME/.mmkeys.sh up
+	$HOME/.local/bin/mmkeys up
 XF86AudioLowerVolume 
-	$HOME/.mmkeys.sh down
+	$HOME/.local/bin/mmkeys down
 XF86AudioMute 
-	$HOME/.mmkeys.sh mute
+	$HOME/.local/bin/mmkeys mute
 F6 
-	$HOME/.mmkeys.sh prev
+	$HOME/.local/bin/mmkeys prev
 F7 
-	$HOME/.mmkeys.sh pause
+	$HOME/.local/bin/mmkeys pause
 F8 
-	$HOME/.mmkeys.sh next
+	$HOME/.local/bin/mmkeys next
 
 # applications
 alt + Return
@@ -38,11 +38,9 @@ alt + d
 alt + b
 	qutebrowser
 alt + m
-	udiskie-dmenu -h 24
-
-# lock screen
-alt + shift + ctrl + l
-	xautolock -locknow
+	dmenu-udiskie -h "24"
+alt + shift + l
+	dmenu-shutdown
 
 # make sxhkd reload its configuration files:
 alt + shift + r

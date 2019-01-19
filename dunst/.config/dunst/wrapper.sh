@@ -1,5 +1,5 @@
 #! /bin/sh
-. $HOME/.colors.sh
+. $HOME/.local/bin/getcolors
 pkill dunst
 dunst -conf $HOME/.config/dunst/config \
 	-lb "$bgeven" \
