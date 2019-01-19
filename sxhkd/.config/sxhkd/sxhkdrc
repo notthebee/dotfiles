@@ -32,7 +32,7 @@ F8
 
 # applications
 alt + Return
-	st
+	st -e "fish"
 alt + d
 	dmenu-frecency
 alt + b

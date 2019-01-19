@@ -3,19 +3,19 @@
 ! urxvt
 URxvt*termName : rxvt-unicode-256color
 URxvt.scrollBar: off
-URxvt.boldFont: xft:Fira Code:size=9:style=Bold
+URxvt.font: xft:Fira Code:size=14
 URxvt*cursorBlink: true
 URxvt*internalBorder: 11
 ! font
-*.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
+*.font: xft:Iosevka:size=10,xft:Twitter Color Emoji:size=9
 Xft.antialias: true
 Xft.hinting: true
-Xft.rgba: rgb
+Xft.rgba: none
 Xft.autohint: false
-Xft.hintstyle: hintmedium
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 ! dmenu
-dmenu.font: Fira Code-9
+dmenu.font: Iosevka-10
 dmenu.background: S_base02
 dmenu.foreground: S_base03
 dmenu.selforeground: S_base00
