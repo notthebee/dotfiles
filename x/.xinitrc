@@ -1,7 +1,7 @@
 #! /bin/sh
 # notthebee's .xinitrc
 
-$HOME/.switchoutputs &
+$HOME/.local/bin/switchoutputs &
 xrdb -merge ~/.Xresources
 parcellite &
 setxkbmap de,ru -option caps:escape -option grp:shifts_toggle

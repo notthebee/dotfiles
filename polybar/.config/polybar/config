@@ -33,7 +33,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Iosevka:pixelsize=10;1
+font-0 = Iosevka:style=Medium:pixelsize=10;1
 font-1 = Icons:style=Iconic:pixelsize=9;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=9;1
 font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1

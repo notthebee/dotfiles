@@ -10,12 +10,12 @@ URxvt*internalBorder: 11
 *.font: xft:Iosevka:size=10,xft:Twitter Color Emoji:size=9
 Xft.antialias: true
 Xft.hinting: true
-Xft.rgba: none
+Xft.rgba: rgb
 Xft.autohint: false
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 ! dmenu
-dmenu.font: Iosevka-10
+dmenu.font: Iosevka-10:style=Medium
 dmenu.background: S_base02
 dmenu.foreground: S_base03
 dmenu.selforeground: S_base00
