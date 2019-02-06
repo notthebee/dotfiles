@@ -8,7 +8,7 @@ bspc rule -a qutebrowser desktop=^2 split_ratio="0.7"
 bspc rule -a Zathura:zathura state=tiled
 
 # restarting dunst and polybar, resetting wallpaper and layout
-feh --bg-scale $HOME/.wp.jpg
+feh --bg-fill $HOME/.wp.jpg
 polybar-msg cmd restart
 $HOME/.config/dunst/wrapper.sh &
 setxkbmap de,ru -option caps:escape -option grp:shifts_toggle

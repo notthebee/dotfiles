@@ -39,13 +39,12 @@ alt + b
 	qutebrowser
 alt + m
 	dmenu-udiskie -h "24"
-alt + shift + l
+super + shift + l
 	dmenu-shutdown
 
 # make sxhkd reload its configuration files:
 alt + shift + r
 	pkill -USR1 -x sxhkd && $HOME/.config/bspwm/bspwmrc
-
 
 # BSPWM
 
@@ -54,8 +53,8 @@ alt + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-alt + f
-	bspc desktop -l next
+alt + {_,shift + }f
+	bspc {desktop -l next,node -t ~fullscreen}
 
 # rotate current node 90 degrees
 alt + y

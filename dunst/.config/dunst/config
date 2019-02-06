@@ -80,7 +80,7 @@
 
     ### Text ###
 
-    font = Fira Code Retina, Twitter Color Emoji 10
+    font = Iosevka Medium, Twitter Color Emoji 10
 
     # The spacing between lines
     line_height = 0

@@ -6,7 +6,7 @@ xrdb -merge ~/.Xresources
 parcellite &
 setxkbmap de,ru -option caps:escape -option grp:shifts_toggle
 xset r rate 280 35
-feh --bg-scale $HOME/.wp.jpg
+feh --bg-fill $HOME/.wp.jpg
 unclutter --timeout 1 &
 #udiskie -A &
 polybar example -r &

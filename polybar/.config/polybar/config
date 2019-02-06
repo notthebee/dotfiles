@@ -38,7 +38,7 @@ font-1 = Icons:style=Iconic:pixelsize=9;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=9;1
 font-3 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
 
-modules-left = bspwm i3
+modules-left = bspwm i3 title
 modules-center = date
 modules-right = xkeyboard player-cmus wireless battery
 [module/i3]
@@ -87,7 +87,7 @@ format-foreground = ${colors.foreground-alt}
 format-padding = 0
 
 label = %title%
-label-maxlen = 50
+label-maxlen = 40
 
 ; Used instead of label when there is no window title
 ; Available tokens:

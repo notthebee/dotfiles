@@ -4,6 +4,7 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 source $HOME/.config/fish/shortcuts.fish
 source $HOME/.config/fish/colors.fish
+set -gx PATH  /opt/chromium $PATH
 
 alias ls="ls --color=auto -FHh"
 alias ll='ls -l'

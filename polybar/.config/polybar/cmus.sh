@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/bin/bash
 
 case "$1" in
     --toggle)
