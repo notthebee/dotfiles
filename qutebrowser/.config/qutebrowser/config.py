@@ -64,60 +64,60 @@ c.url.searchengines = {'DEFAULT': 'https://new.startpage.com/do/dsearch?query={}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'file:///home/notthebee/.startpage/index.html'
+c.url.start_pages = 'https://startpage.com'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = 'Iosevka'
+c.fonts.monospace = 'Fira Code'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '500 10pt monospace'
+c.fonts.completion.entry = '400 9pt monospace'
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = 'bold 10pt monospace'
+c.fonts.completion.category = 'bold 9pt monospace'
 
 # Font used for the debugging console.
 # Type: QtFont
-c.fonts.debug_console = '500 10pt monospace'
+c.fonts.debug_console = '400 9pt monospace'
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '500 10pt monospace'
+c.fonts.downloads = '400 9pt monospace'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = 'bold 10pt monospace'
+c.fonts.hints = 'bold 9pt monospace'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '500 10pt monospace'
+c.fonts.keyhint = '400 9pt monospace'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '500 10pt monospace'
+c.fonts.messages.error = '400 9pt monospace'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '500 10pt monospace'
+c.fonts.messages.info = '400 9pt monospace'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '500 10pt monospace'
+c.fonts.messages.warning = '400 9pt monospace'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '500 10pt monospace'
+c.fonts.prompts = '400 9pt monospace'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '500 10pt monospace'
+c.fonts.statusbar = '400 9pt monospace'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '500 10pt monospace'
+c.fonts.tabs = '400 9pt monospace'
 
 # COLORS
 
@@ -129,7 +129,7 @@ def read_xresources(prefix):
         prop, _, value = line.partition(':\t')
         props[prop] = value
     return props
-
+'''
 xresources = read_xresources('*')
 c.colors.completion.fg = xresources['*.foreground']
 c.colors.completion.odd.bg = xresources['*.background']
@@ -177,6 +177,7 @@ c.colors.tabs.selected.odd.bg = xresources['*.background']
 c.colors.tabs.selected.even.fg = xresources['*.foreground']
 c.colors.tabs.selected.even.bg = xresources['*.background']
 c.colors.webpage.bg = "white"
+'''
 
 # web fonts
 c.fonts.web.family.serif = "Liberation Serif"

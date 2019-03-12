@@ -1,2 +1,2 @@
-mv: missing file operand
-Try 'mv --help' for more information.
+#! /bin/sh
+rsync -e "ssh -p 69 -i /home/notthebee/.ssh/backup" -avr --no-o --no-g --delete --progress --stats /home/notthebee notthebee@192.168.0.31:/home/notthebee/External/Backup/home_folder

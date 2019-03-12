@@ -12,13 +12,11 @@ MONITOR=LVDS1
 connect() {
 	echo "Switching to HDMI2"
 	xrandr --output LVDS1 --off --output HDMI2 --auto --dpi 96
-	/home/notthebee/.config/bspwm/bspwmrc
 	MONITOR=HDMI2
 }
 disconnect() {
 	echo "Switching to LVDS1"
 	xrandr --output HDMI2 --off --output LVDS1 --auto --dpi 96
-	/home/notthebee/.config/bspwm/bspwmrc
 	MONITOR=LVDS1
 }
 

@@ -1,8 +1,9 @@
 export EDITOR=nvim
-export PATH=$HOME/.local/bin:/opt/chromium:$PATH
+export PATH=$HOME/.local/bin:/opt/chromium:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export CLICOLOR=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
 HISTFILE=$HOME/.ksh_history
 HISTSIZE=20000
 
@@ -31,7 +32,5 @@ alias vim='nvim'
 alias ipp='curl ipinfo.io/ip'
 alias mixer='ncpamixer'
 PS1="$(echo -e "\033[34m~ \033[00m")"
-
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi
 
 set -o emacs

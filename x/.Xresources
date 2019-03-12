@@ -1,22 +1,21 @@
 ! colors
-#include ".Xresources.d/solarized" 
+#include ".Xresources.d/nord" 
 ! urxvt
 URxvt*termName : rxvt-unicode-256color
 URxvt.scrollBar: off
-URxvt.font: xft:Fira Code:size=14
+URxvt.font: xft:Dina:size=9
 URxvt*cursorBlink: true
 URxvt*internalBorder: 11
 ! font
-*.font: xft:Iosevka:size=10,xft:Twitter Color Emoji:size=9
+*.font: xft:Fira Code:size=9,xft:Twitter Color Emoji:size=9
 Xft.antialias: true
 Xft.hinting: true
-Xft.rgba: rgb
+Xft.rgba: false
 Xft.autohint: false
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
 Xft.lcdfilter: lcddefault
 ! dmenu
-dmenu.font: Iosevka-10:style=Medium
-dmenu.background: S_base02
-dmenu.foreground: S_base03
-dmenu.selforeground: S_base00
-dmenu.selbackground: S_base02
+dmenu.background: background
+dmenu.foreground: foreground
+dmenu.selforeground: background
+dmenu.selbackground: foreground

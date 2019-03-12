@@ -1,0 +1,39 @@
+# MISC
+
+# screenshots
+alt + ctrl + 3
+	maim -u | xclip -selection clipboard -t image/png && notify-send "Screenshot captured"
+alt + ctrl + 4
+	maim -s -u | xclip -selection clipboard -t image/png && notify-send "Screenshot captured"
+
+# screencasts 
+alt + ctrl + 5 
+	mpv $HOME/.local/share/sounds/beep-timber.aif && dunstify -u CRIT "on air" -t 800 && ffmpeg -f x11grab -s 1920x1080 -i :0.0 -vcodec huffyuv $HOME/Videos/Screencasts/$(date +"%d_%m_%Y_%I_%M").mkv
+alt + ctrl + 6 
+	mpv $HOME/.local/share/sounds/beep-timber.aif && pkill ffmpeg && dunstify -u LOW "screencast saved"
+
+# switch between monitors
+F12
+	exec $HOME/.local/bin/switchoutputs
+
+# media keys
+XF86AudioRaiseVolume 
+	$HOME/.local/bin/mmkeys up
+XF86AudioLowerVolume 
+	$HOME/.local/bin/mmkeys down
+XF86AudioMute 
+	$HOME/.local/bin/mmkeys mute
+F6 
+	$HOME/.local/bin/mmkeys prev
+F7 
+	$HOME/.local/bin/mmkeys pause
+F8 
+	$HOME/.local/bin/mmkeys next
+
+# applications
+alt + Return
+	konsole
+alt + b
+	qutebrowser
+super + shift + l
+	dmenu-shutdown

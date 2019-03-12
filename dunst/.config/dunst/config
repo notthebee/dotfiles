@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x100-4+28"
+    geometry = "300x100+10-10"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -41,11 +41,8 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 10
+    transparency = 5
 
-    # The height of the entire notification.  If the height is smaller
-    # than the font height and padding combined, it will be raised
-    # to the font height and padding.
     notification_height = 0
 
     # Draw a line of "separator_height" pixel height between two
@@ -56,12 +53,11 @@
     # Padding between text and separator.
     padding = 8
 
-    # Horizontal padding.
     horizontal_padding = 15
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
 
@@ -80,7 +76,7 @@
 
     ### Text ###
 
-    font = Iosevka Medium, Twitter Color Emoji 10
+    font = Noto Sans, Twitter Color Emoji 10
 
     # The spacing between lines
     line_height = 0

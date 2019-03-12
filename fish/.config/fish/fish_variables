@@ -14,7 +14,7 @@ SETUVAR _fish_abbr_polyconf:nvim\x20\x7e/\x2econfig/polybar/config
 SETUVAR _fish_abbr_quteconf:nvim\x20\x7e/\x2econfig/qutebrowser/config\x2epy
 SETUVAR _fish_abbr_sxhconf:nvim\x20\x7e/\x2econfig/sxhkd/sxhkdrc
 SETUVAR _fish_abbr_vimconf:nvim\x20\x7e/\x2evimrc
-SETUVAR fish_color_autosuggestion:brgreen
+SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
 SETUVAR fish_color_comment:brgreen

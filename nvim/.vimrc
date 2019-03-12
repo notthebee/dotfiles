@@ -3,7 +3,7 @@ set nocompatible
 set shell=bash
 set tw=0
 filetype off
-set clipboard=unnamed
+set clipboard=unnamedplus
 set backspace=indent,eol,start
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
@@ -19,6 +19,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'mattn/emmet-vim'
 Plugin 'lervag/vimtex'
+Plugin 'justinmk/vim-sneak'
 call vundle#end()
 filetype plugin indent on
 let python_highlight_all=1
@@ -48,13 +49,13 @@ let g:goyo_height = "80%"
 
 let g:vimtex_compiler_enabled = 1
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_general_viewer = '/usr/bin/zathura'
+let g:vimtex_view_general_viewer = 'okular'
 set nu
 set relativenumber
 syntax on
 set laststatus=2
 set background=dark
-colorscheme flattened_dark
+colorscheme default
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 au BufNewFile,BufRead *.md
     \ Goyo |

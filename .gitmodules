@@ -1,3 +1,6 @@
 [submodule "nvim/.vim/bundle/Vundle.vim"]
 	path = nvim/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
+[submodule "nvim/.vim/bundle/vim-sneak"]
+	path = nvim/.vim/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak

@@ -3,7 +3,5 @@
 
 config_version: 2
 settings:
-  fonts.web.family.sans_serif:
-    global: DejaVu Sans
-  fonts.web.family.serif:
-    global: DejaVu Serif
+  url.start_pages:
+    global: startpage.com
