@@ -1,0 +1,6 @@
+---
+system:
+  packages:
+    mas:
+    brew:
+    cask:

@@ -1,0 +1,16 @@
+---
+- name: Install kitty
+  community.general.homebrew_cask:
+    name: kitty
+
+- name: Make sure that the kitty config folder is created
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/kitty"
+    state: directory
+    owner: "{{ username }}"
+    mode: "0755"
+
+- name: Copy the kity configuration file in place
+  ansible.posix.synchronize:
+    src: "files/kitty.conf"
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/kitty.conf"

@@ -1,0 +1,13 @@
+---
+system:
+  packages:
+    brew:
+      - neovim
+      - yarn
+      - nodejs
+      - fish
+      - neofetch
+      - tmux
+    cask:
+      - kitty
+      - karabiner-elements

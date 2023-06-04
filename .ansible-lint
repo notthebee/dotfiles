@@ -1,0 +1,13 @@
+---
+exclude_paths:
+  - .git/
+  - .github/
+warn_list:
+  - package-latest
+  - yaml
+  - fqcn
+skip_list:
+  - command-instead-of-shell
+  - experimental
+  - name[template]
+  - no-handler

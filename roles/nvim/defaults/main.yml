@@ -1,0 +1,4 @@
+---
+nvim:
+  prefix:
+    figlet: "/opt/homebrew/share/figlet"

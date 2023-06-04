@@ -1,0 +1,29 @@
+#! /usr/bin/env ansible-playbook -c dotfiles/ansible.cfg
+---
+- name: Install applications and configure dotfiles
+  hosts: all
+  become: no
+  roles:
+    - role: system
+      tags:
+        - system
+
+    - role: fish
+      tags:
+        - fish
+
+    - role: tmux
+      tags:
+        - tmux
+
+    - role: nvim
+      tags:
+        - nvim
+
+    - role: karabiner
+      tags:
+        - karabiner
+
+    - role: kitty
+      tags:
+        - kitty

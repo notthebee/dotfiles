@@ -1,0 +1,21 @@
+---
+- name: Check if homebrew is installed
+  register: system_brew_installed
+  changed_when: system_brew_installed.rc > 0
+  ansible.builtin.command:
+    cmd: brew --version
+
+- name: Install homebrew
+  become: yes
+  when: system_brew_installed.rc > 0
+  changed_when: yes
+  ansible.builtin.shell:
+    cmd: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+
+- name: Install brew packages
+  community.general.homebrew:
+    name: "{{ system.packages.brew }}"
+
+- name: Install brew casks
+  community.general.homebrew_cask:
+    name: "{{ system.packages.cask }}"

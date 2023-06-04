@@ -1,0 +1,10 @@
+---
+- name: Install fish
+  ansible.builtin.package:
+    name: fish
+
+- name: Deploy the fish configuration files
+  ansible.posix.synchronize:
+    src: files/
+    dest: "{{ ansible_env.HOME }}/.config/fish/"
+    delete: true

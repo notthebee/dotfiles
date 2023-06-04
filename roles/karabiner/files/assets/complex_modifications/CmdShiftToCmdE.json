@@ -1,0 +1,54 @@
+{
+  "title": "Languages",
+  "rules": [
+    {
+      "description": "Shift + Command to Command + e",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Shift to Command + e",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+        
+      ]
+    }
+  ]
+}

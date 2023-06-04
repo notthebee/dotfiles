@@ -1,0 +1,16 @@
+---
+- name: Install karabiner
+  community.general.homebrew_cask:
+    name: karabiner-elements
+
+- name: Make sure that the karabiner config folder is created
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/karabiner"
+    state: directory
+    owner: "{{ username }}"
+    mode: "0755"
+
+- name: Copy the karabiner configuration files in place
+  ansible.posix.synchronize:
+    src: "files/"
+    dest: "{{ ansible_env.HOME }}/.config/karabiner/"
