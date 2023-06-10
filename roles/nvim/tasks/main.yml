@@ -1,5 +1,7 @@
 ---
 - name: Download the larry3d font (for startify splash screen)
+  become: yes
+  become_user: "{{ brew_user }}"
   ansible.builtin.get_url:
     url: https://github.com/xero/figlet-fonts/raw/master/larry3d.flf
     dest: "{{ nvim.prefix.figlet }}/larry3d.flf"
