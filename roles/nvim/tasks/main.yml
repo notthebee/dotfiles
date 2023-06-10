@@ -1,23 +1,38 @@
 ---
-- name: Install neovim and dependencies
-  ansible.builtin.package:
-    name:
-      - neovim
-      - figlet
-      - yarn
-      - nodejs
-
 - name: Download the larry3d font (for startify splash screen)
   ansible.builtin.get_url:
     url: https://github.com/xero/figlet-fonts/raw/master/larry3d.flf
     dest: "{{ nvim.prefix.figlet }}/larry3d.flf"
     mode: 0644
 
+- name: Create the nvim configuration folders
+  loop:
+    - nvim/
+    - nvim/after
+    - nvim/after/plugin
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
+    state: directory
+    owner: "{{ username }}"
+    mode: "0755"
+
 - name: Deploy the nvim configuration files
-  ansible.posix.synchronize:
-    src: files/
-    dest: "{{ ansible_env.HOME }}/.config/nvim/"
-    delete: true
+  with_fileglob:
+    - "files/*.vim"
+    - "files/*.json"
+  ansible.builtin.file:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/nvim/{{ item | basename }}"
+    state: link
+
+- name: Deploy the nvim plugin configuration files
+  with_fileglob:
+    - "files/after/plugin/*.vim"
+    - "files/after/plugin/*.lua"
+  ansible.builtin.file:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/nvim//after/plugin/{{ item | basename }}"
+    state: link
 
 - name: Check if vim-plug is installed
   register: nvim_vim_plug
@@ -36,7 +51,6 @@
     owner: "{{ username }}"
     state: directory
     mode: "0755"
-
 
 - name: Download and install vim-plug
   when: not nvim_vim_plug.stat.exists

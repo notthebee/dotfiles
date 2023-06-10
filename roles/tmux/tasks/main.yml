@@ -1,15 +1,4 @@
 ---
-- name: Check if tmux is installed
-  changed_when: tmux_installed.rc > 0
-  register: tmux_installed
-  ansible.builtin.shell:
-    cmd: tmux -V
-
-- name: Install tmux
-  when: tmux_installed.rc > 0
-  ansible.builtin.package:
-    name: tmux
-
 - name: Make sure that the tmux plugin folder is created
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
@@ -27,12 +16,12 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/tmux"
     state: directory
-    recurse: yes
     owner: "{{ ansible_env.USER }}"
+    mode: "0755"
 
-- name: Install the tmux configuration
-  ansible.builtin.template:
-    src: tmux.conf
+
+- name: Link the tmux configuration
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/tmux.conf"
     dest: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
-    owner: "{{ ansible_env.USER }}"
-    mode: "0644"
+    state: link

@@ -1,10 +1,32 @@
 ---
-- name: Install fish
-  ansible.builtin.package:
-    name: fish
+- name: Create the directories
+  loop:
+    - ".config/fish"
+    - ".config/fish/functions"
+    - ".config/fish/conf.d"
+  ansible.builtin.file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    owner: "{{ username }}"
+    mode: 0755
 
 - name: Deploy the fish configuration files
-  ansible.posix.synchronize:
-    src: files/
-    dest: "{{ ansible_env.HOME }}/.config/fish/"
-    delete: true
+  with_fileglob: "files/*.fish"
+  ansible.builtin.file:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/fish/{{ item | basename }}"
+    state: link
+
+- name: Deploy the fish functions
+  with_fileglob: "files/functions/*.fish"
+  ansible.builtin.file:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/fish/functions/{{ item | basename }}"
+    state: link
+
+- name: Deploy the BW session key
+  ansible.builtin.template:
+    src: "conf.d/bw_session.fish"
+    dest: "{{ ansible_env.HOME }}/.config/fish/conf.d/bw_session.fish"
+    owner: "{{ username }}"
+    mode: 0644

@@ -1,8 +1,4 @@
 ---
-- name: Install neofetch
-  ansible.builtin.package:
-    name: neofetch
-
 - name: Make sure that the neofetch config folder is created
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/neofetch"
@@ -10,7 +6,8 @@
     owner: "{{ username }}"
     mode: "0755"
 
-- name: Copy the neofetch configuration file in place
-  ansible.posix.synchronize:
-    src: "files/config.conf"
+- name: Deploy the neofetch configuration file in place
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/config.conf"
     dest: "{{ ansible_env.HOME }}/.config/neofetch/config.conf"
+    state: link

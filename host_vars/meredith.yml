@@ -3,11 +3,13 @@ system:
   packages:
     brew:
       - neovim
+      - figlet
       - yarn
       - nodejs
       - fish
       - neofetch
       - tmux
+      - bitwarden-cli
     cask:
       - kitty
       - karabiner-elements

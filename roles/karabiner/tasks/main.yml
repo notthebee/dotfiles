@@ -1,16 +1,24 @@
 ---
-- name: Install karabiner
-  community.general.homebrew_cask:
-    name: karabiner-elements
-
 - name: Make sure that the karabiner config folder is created
+  loop:
+    - karabiner
+    - karabiner/assets
+    - karabiner/assets/complex_modifications
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/karabiner"
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
     state: directory
     owner: "{{ username }}"
     mode: "0755"
 
-- name: Copy the karabiner configuration files in place
-  ansible.posix.synchronize:
-    src: "files/"
-    dest: "{{ ansible_env.HOME }}/.config/karabiner/"
+- name: Deploy the karabiner asset files
+  with_fileglob: "files/assets/complex_modifications/*.json"
+  ansible.builtin.file:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/karabiner/assets/complex_modifications/{{ item | basename }}"
+    state: link
+
+- name: Deploy the karabiner asset files
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/karabiner.json"
+    dest: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
+    state: link

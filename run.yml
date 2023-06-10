@@ -27,3 +27,7 @@
     - role: kitty
       tags:
         - kitty
+
+    - role: neofetch
+      tags:
+        - neofetch

@@ -1,5 +1,0 @@
----
-all:
-  hosts:
-    meredith:
-      ansible_connection: local

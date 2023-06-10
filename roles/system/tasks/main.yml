@@ -13,9 +13,12 @@
     cmd: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
 - name: Install brew packages
+  become: yes
+  become_user: "{{ brew_user }}"
   community.general.homebrew:
     name: "{{ system.packages.brew }}"
 
 - name: Install brew casks
+  become_user: "{{ brew_user }}"
   community.general.homebrew_cask:
     name: "{{ system.packages.cask }}"

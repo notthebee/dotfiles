@@ -1,2 +1,3 @@
 ---
+brew_user: "notthebee"
 username: "{{ ansible_env.USER }}"
